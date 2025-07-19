@@ -5,7 +5,7 @@ function LoginFooter() {
   return (
     <div className={styles.loginFooter}>
       <p>Questions? Call 000-800-919-1743 (Toll-Free)</p>
-      <u className={styles.list}>
+      <ul className={styles.list}>
         <li>
           <a href="">FAQ</a>
         </li>
@@ -24,7 +24,7 @@ function LoginFooter() {
         <li>
           <a href="">Coprate</a>
         </li>
-      </u>
+      </ul>
       <div id="border-box" className={styles["border-box"]}>
         <svg
           className={styles["language-icon-footer"]}
@@ -42,7 +42,6 @@ function LoginFooter() {
           <option value="English">English</option>
           <option value="Hindi">Hindi</option>
         </select>
-        <i className="fa-solid fa-caret-down" id="down"></i>
       </div>
     </div>
   );

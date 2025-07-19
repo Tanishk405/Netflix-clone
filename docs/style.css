@@ -1,86 +1,35 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
+@font-face {
+  font-family: "Netflix Sans";
+  src: url("path/to/NetflixSans-Regular.woff2") format("woff2"),
+    url("path/to/NetflixSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-html body {
-  color: white;
-  background-color: #000;
-  overflow-x: hidden !important;
+body {
   font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu,
     sans-serif;
 }
 
-
-
-.wrapper {
-  width: 100%;
-  overflow-x: hidden;
-  position: relative;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-
-
-
-
-.mobileCaret {
-  display: none;
-}
-
-@media (max-width: 600px) {
-  .mobileCaret {
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    right: 1px;
-    transform: translateY(-50%);
-    z-index: 50;
-    pointer-events: none;
-    height: 50pz;
-    color: white;
-  }
-}
-
-
-
-
-
-
-
-
-nav{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  margin: 0 auto;
-  top: 0;
-  left: 0;
-  transition: background-color 0.3s ease;
-  background-color: transparent;
-}
-
-
-.navbar.scrolled {
+html body {
+  color: white;
   background-color: black;
+  overflow-x: hidden;
 }
+
 /* Header */
 
 .container {
   display: flex;
   justify-content: space-between;
-  width: 80vw;
-  top: 0;
-  margin: 0 auto;
-  left: -20px;
-
   margin-top: 25px;
   position: relative;
-  /* margin: 20px; */
   z-index: 9;
 }
 
@@ -104,11 +53,11 @@ header .form-select {
   padding-left: 30px;
   margin-right: 10px;
   text-align: center;
-  margin-top: -1px;
+  display: flex;
+  justify-content: center;
   padding: 1px;
   outline: none;
   border: 1px solid #999;
-  border-radius: 4px;
 }
 
 .form-select option {
@@ -151,37 +100,32 @@ header .form-select {
   left: 5%;
   width: 16px;
   height: 16px;
-  z-index: 1;
 }
 
-.bg {
+#bg {
   top: 0;
   left: 0;
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('/Netflix-bg.jpg') !important;
+  background-image: url("Netflix bg.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
   color: white;
-  z-index: 0;
-
 }
 
-.text {
-  width: 100%;
+#text {
   position: absolute;
   flex-direction: column;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   line-height: 44px;
 }
 
-.text h1 {
+#text h1 {
   font-size: 56px;
   font-weight: 999;
   font-family: Roboto, "Helvetica Neue", "Segoe UI", Ubuntu, sans-serif;
@@ -192,25 +136,16 @@ header .form-select {
   display: flex;
   text-align: center;
   justify-content: center;
-  min-height: 100vh;
-  position: relative;
-  flex-direction: column;
+  margin-top: 10%;
+}
+
+#email-form {
+  display: flex;
   align-items: center;
-  overflow: hidden;
-}
-
-.email-form {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-}
-.up-email-form {
-  display: flex;
-  align-items: stretch;
   justify-content: center;
 }
 
-.emailInput {
+#email-one {
   background: transparent;
   color: white;
   padding: 10px;
@@ -221,7 +156,6 @@ header .form-select {
   border: 1px solid #999;
   border-radius: 5px;
   height: 60px;
-  box-sizing: border-box;
 }
 
 ::placeholder {
@@ -229,8 +163,8 @@ header .form-select {
   opacity: 1; /* Firefox reduces opacity by default */
 }
 
-.getButton {
-  border-radius: 5px;
+#get-start-btn {
+  border-radius: 4px;
   border: none;
   background-color: #cd141d;
   color: white;
@@ -239,10 +173,6 @@ header .form-select {
   font-weight: bold;
   height: 59px;
   /* min-height: 4rem; */
-  gap: 10px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
 }
 
 #down {
@@ -262,40 +192,20 @@ header .form-select {
     z-index: 9;
   }
 
-  .language-icon{
-    margin-left: 10px;
-    position: absolute;
-  }
-
   .btns {
     display: flex;
     gap: 20px;
     flex-direction: row;
-    position: relative;
-    right: -3px;
-
-  }
-
-
-  nav{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0px 50px;
-    padding: 0px;
   }
 
   .logo {
     width: auto;
     height: 25px;
     margin-top: 5px;
-    position: relative;
-    left: -40px;
     /* padding: 10px; */
   }
 
-  .form-select {
+  header .form-select {
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -308,11 +218,11 @@ header .form-select {
     border: 1px solid white;
   }
 
-  .border-box {
+  #border-box {
     border: 1px solid #999;
     height: 30px;
     width: 60px;
-    margin-right: -10px;
+    margin-right: 10px;
     border-radius: 5px;
   }
 
@@ -353,7 +263,7 @@ header .form-select {
     color: white;
   }
 
-  .bg {
+  #bg {
     top: 0;
     left: 0;
     height: 100vh;
@@ -366,19 +276,19 @@ header .form-select {
     color: white;
   }
 
-  .text h5 {
+  #text h5 {
     font-size: 17px;
     margin-bottom: 15px;
   }
 
-  .text .sort-txt {
+  #text #sort-txt {
     width: 80vw;
     font-size: 16px;
     font-weight: 600;
     line-height: 23px;
   }
 
-  .text {
+  #text {
     position: absolute;
     flex-direction: column;
     z-index: 1;
@@ -387,7 +297,7 @@ header .form-select {
     justify-content: center;
   }
 
-  .text h1 {
+  #text h1 {
     margin-top: 55px;
     width: 82vw;
     font-size: 2rem;
@@ -399,34 +309,15 @@ header .form-select {
     display: flex;
     text-align: center;
     justify-content: center;
-
+    margin-top: 10%;
   }
-  .email-form {
+  #email-form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
-  .up-email-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  /* #email-one {
-    background: #151412;
-    color: white;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    height: 50px;
-    width: 80vw;
-    margin-top: 15px;
-    margin-right: 5px;
-    border: 1px solid #606060;
-    border-radius: 4px;
-  } */
-  .emailInput {
+  #email-one {
     background: #151412;
     color: white;
     padding: 10px;
@@ -445,7 +336,7 @@ header .form-select {
     opacity: 1; /* Firefox reduces opacity by default */
   }
 
-  .getButton {
+  #get-start-btn {
     border-radius: 7px;
     border: none;
     background-color: #cd141d;
@@ -467,34 +358,6 @@ header .form-select {
     position: relative;
     z-index: 9;
   }
-  
-
-
-.language-selector {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.language-icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  pointer-events: none;
-}
-
-.language-dropdown-foot {
-  padding: -8px 10px 8px 30px;
-  font-size: 13px;
-  color: #fff;
-  background: #000;
-  border: 1px solid #333;
-  border-radius: 2px;
-  cursor: pointer;
-}
 
   .btns {
     display: flex;
@@ -540,21 +403,6 @@ header .form-select {
     border: 1px solid #999;
   }
 
-  header .form-select {
-    width: 120px;
-    background: #0f0f0f;
-    color: white;
-    height: 32px;
-    padding-left: 30px;
-    margin-right: 10px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    padding: 1px;
-    outline: none;
-    border: 1px solid #999;
-  }
-
   /* Section */
 
   .cover {
@@ -568,12 +416,12 @@ header .form-select {
     color: white;
   }
 
-  .bg {
+  #bg {
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-image: url("/Netflix-bg.jpg");
+    background-image: url("Netflix bg.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -581,19 +429,19 @@ header .form-select {
     color: white;
   }
 
-  .text h5 {
+  #text h5 {
     font-size: 17px;
     margin-bottom: 15px;
   }
 
-  .text .sort-txt {
+  #text #sort-txt {
     width: 56vw;
     font-size: 16px;
     font-weight: 600;
     line-height: 23px;
   }
 
-  .text {
+  #text {
     position: absolute;
     flex-direction: column;
     z-index: 1;
@@ -602,7 +450,7 @@ header .form-select {
     justify-content: center;
   }
 
-  .text h1 {
+  #text h1 {
     margin-top: 55px;
     width: 62vw;
     font-size: 2rem;
@@ -614,22 +462,10 @@ header .form-select {
     display: flex;
     text-align: center;
     justify-content: center;
+    margin-top: 10%;
   }
 
-  /* #email-one {
-    background: #151412;
-    color: white;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    height: 55px;
-    width: 30vw;
-    margin-top: 15px;
-    margin-right: 5px;
-    border: 1px solid #606060;
-    border-radius: 4px;
-  } */
-  .emailInput {
+  #email-one {
     background: #151412;
     color: white;
     padding: 10px;
@@ -648,7 +484,7 @@ header .form-select {
     opacity: 1; /* Firefox reduces opacity by default */
   }
 
-  .getButton {
+  #get-start-btn {
     border-radius: 4px;
     border: none;
     background-color: #cd141d;
@@ -665,8 +501,6 @@ header .form-select {
 /* Trending Now line Css Start*/
 
 .default-ltr-cache-dulgtd {
-  position: relative;
-  top: -20px;
   box-sizing: border-box;
   overflow-x: hidden;
   position: relative;
@@ -733,7 +567,7 @@ header .form-select {
 
 #line-box {
   position: relative;
-  top: -20px;
+  top: 0;
 }
 
 .section2 {
@@ -741,9 +575,8 @@ header .form-select {
   width: 100%;
   background-color: #000000;
   z-index: 999;
-  position: relative;
-  /* top: 95vw; */
-  top: unset;
+  position: absolute;
+  top: 95%;
 }
 
 
@@ -825,7 +658,7 @@ header .form-select {
   z-index: 10;
 }
 
-.scrollButton {
+.scroll-button {
   position: absolute;
   top: 50%;
   width: 50px;
@@ -844,16 +677,16 @@ header .form-select {
   transition: opacity 0.3s;
 }
 
-.movie-carousel:hover .scrollButton {
+.movie-carousel:hover .scroll-button {
   opacity: 1;
 }
 
-.scrollButton.left {
+.scroll-button.left {
   left: 0;
   border-radius: 0 4px 4px 0;
 }
 
-.scrollButton.right {
+.scroll-button.right {
   right: 0;
   border-radius: 4px 0 0 4px;
 }
@@ -865,9 +698,6 @@ header .form-select {
     height: 180px;
   }
   
-
-  
-
   .movie-number {
     font-size: 4em;
     bottom: 15px;
@@ -890,11 +720,6 @@ header .form-select {
     height: calc((40vw - 30px) * 1.5);
   }
   
-  .faqChal{
-    position: relative;
-    left: -30px;
-  }
-
   .movie-number {
     font-size: 3em;
     bottom: 10px;
@@ -939,11 +764,9 @@ header .form-select {
 .more-reasons h2 {
     font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 20px;
-    text-align: center;
-    left: -30vw;
-    /* margin-top: -20px; */
-    position: relative;
+    margin-bottom: 40px;
+    text-align: left;
+    margin-left: 13vw;
 }
 
 .reasons-container {
@@ -963,8 +786,6 @@ header .form-select {
     padding: 30px;
     box-sizing: border-box;
     transition: transform 0.3s ease;
-    background: linear-gradient(135deg, #1a2144, #20101d); /* Dark gradient */
-  color: #ffffff;
 }
 
 .reason-card:hover {
@@ -999,17 +820,11 @@ header .form-select {
     .more-reasons h2 {
         font-size: 1.75rem;
         margin-bottom: 30px;
-        margin-right: -130px;
     }
     
     .reason-card {
         flex: 1 1 100%;
         max-width: 100%;
-    }
-
-    .faqChal{
-      position: relative;
-      left: -30px;
     }
 
 
@@ -1043,25 +858,7 @@ header .form-select {
 }
  
 
-@media (min-width: 768px) and (max-width:992px){    
-
-    .logo {
-        width: auto;
-        height: 25px;
-        padding: 0px;
-    }
-
-      .faqChal{
-    position: relative;
-    left: -30px;
-  }
-
-
-    .text h1{
-        font-size: 34px;
-        font-weight: 700;
-        width: 500px;
-    }
+@media (min-width: 768px) and (max-width:992px){
 
     .more-reasons {
         padding: 40px 15px;
@@ -1081,6 +878,7 @@ header .form-select {
 
 
 
+
   .reasons-container {
     display: flex;
     flex-wrap: wrap;
@@ -1092,11 +890,6 @@ header .form-select {
 }
 
 
-/* @media (min-width: 991px){
-      header .language-icon {
-      transform: translateY(-70%);
-    }
-} */
 
 
 
@@ -1106,7 +899,7 @@ header .form-select {
 
 
 
-/* 
+
  .faq-section {
     background-color: #000;
     color: #fff;
@@ -1121,7 +914,7 @@ header .form-select {
     font-weight: 700;
     margin-bottom: 40px;
     margin-left: 30px;
-
+    /* text-align: center; */
 }
 
 .faq-container {
@@ -1160,12 +953,12 @@ header .form-select {
     transition: transform 0.3s ease;
 }
 
-
+/* Active state for when an item is open */
 .faq-item.active .faq-icon {
     transform: rotate(45deg);
 }
 
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .faq-section {
         padding: 40px 15px;
@@ -1197,154 +990,11 @@ header .form-select {
         width: 20px;
         height: 20px;
     }
-} */
-
-
-
-/* FAQ Section Styles */
-.faq-section {
-  background-color: #000;
-  color: #fff;
-  padding: 60px 20px;
-  font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-.faq-section h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 40px;
-  /* text-align: center; */
-}
-
-.faq-container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-  /* max-width: 815px; */
-  margin: 0 auto;
-}
-
-.faq-item-wrapper {
-  margin-bottom: 8px;
-}
-
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2d2d2d;
-  color: white;
-  border: none;
-  padding: 24px;
-  font-size: 1.5rem;
-  font-weight: 400;
-  text-align: left;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.faq-question:hover {
-  background-color: #4c4848;
-}
-
-.faq-question.active {
-  background-color: #4c4848;
-}
-
-.faq-icon {
-  flex-shrink: 0;
-  margin-left: 20px;
-  transition: transform 0.3s ease;
-}
-
-.faq-question.active .faq-icon {
-  transform: rotate(45deg);
-}
-
-.faq-answer {
-  background-color: #2d2d2d;
-  padding: 24px;
-  margin-top: 1px;
-  text-align: left;
-}
-
-.faq-answer-text {
-  font-size: 1.25rem;
-  line-height: 1.4;
-  color: #fff;
-  margin-bottom: 15px;
-}
-
-.faq-answer-text:last-child {
-  margin-bottom: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .faq-section {
-    padding: 40px 15px;
-  }
 
 
-  .faqChal{
-    position: relative;
-    left: -30px;
-  }
-  
-  .faq-section h2 {
-    font-size: 1.75rem;
-    margin-bottom: 30px;
-  }
-  
-  .faq-question {
-    font-size: 1.25rem;
-    padding: 18px;
-  }
-  
-  .faq-answer {
-    padding: 18px;
-  }
-  
-  .faq-answer-text {
-    font-size: 1.1rem;
-  }
-}
 
-@media (max-width: 480px) {
-
-  .faq-section h2 {
-    font-size: 1.5rem;
-  }
-  
-  .faq-question {
-    font-size: 1rem;
-    padding: 14px;
-  }
-  
-  .faq-answer {
-    padding: 14px;
-  }
-  
-  .faq-answer-text {
-    font-size: 0.9rem;
-  }
-  
-  .faq-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-
-  .btns{
-    position: absolute;
-    right: 20px;
-  }
-}
 
 
 
@@ -1364,14 +1014,12 @@ header .form-select {
   max-width: 950px;
   margin: 0 auto;
   padding: 0 0 50px;
-  flex-direction: column;
+  text-align: center;
 }
 
 .ready-text {
-  text-align: center;
   font-size: 1rem;
   margin-bottom: 20px;
-  color: white;
 }
 
 .email-form {
@@ -1395,17 +1043,17 @@ header .form-select {
   color: #fff;
 }
 
-.getStartedBtn {
+.get-started-btn {
   /* flex: 0 0 auto; */
   padding: 5px 24px;
   height: 8vh;
   width: 21vw;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 500;
   background: #e50914;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 2px;
   cursor: pointer;
 }
 
@@ -1419,19 +1067,19 @@ header .form-select {
   margin: 0 0 30px;
 }
 
-.questionsP {
-  font-family:Helvetica , Roboto, Ubuntu, sans-serif;
+.questions {
   font-size: 1rem;
-  color: #ccc;
-  font-weight: 500;
+  color: #757575;
 }
 
-.questionsP a {
-  color: #ccc;
-
+.questions a {
+  color: #757575;
+  text-decoration: none;
 }
 
-
+.questions a:hover {
+  text-decoration: underline;
+}
 
 .footer-links {
   display: grid;
@@ -1444,21 +1092,10 @@ header .form-select {
   list-style: none;
   padding: 0;
   margin: 0;
-  color: #d7d3d3;
-  
 }
 
-.faqChal a{
-  display: block;
-  color: #d7d3d3;
-  list-style: none;
-  
-}
-.faqChal li{
-  display: block;
-  color: #d7d3d3;
-  list-style: none;
-  
+.link-column li {
+  margin-bottom: 16px;
 }
 
 .link-column a {
@@ -1477,19 +1114,18 @@ header .form-select {
   margin-bottom: 20px;
 }
 
-.language-icon-foot {
+.language-icon {
   position: absolute;
   left: 12px;
-  top: 70%;
+  top: 50%;
   transform: translateY(-50%);
   width: 16px;
   height: 16px;
   pointer-events: none;
-  z-index: 9;
 }
 
 .language-dropdown {
-  padding: -8px 10px 8px 3px;
+  padding: 8px 10px 8px 36px;
   font-size: 13px;
   color: #fff;
   background: #000;
@@ -1500,7 +1136,7 @@ header .form-select {
 
 .netflix-india {
   font-size: 13px;
-  color: #d7d3d3;
+  color: #757575;
   margin-top: 24px;
 }
 
@@ -1516,7 +1152,7 @@ header .form-select {
 
 
 
-  .getStartedBtn {
+  .get-started-btn {
     width: 200px;
     font-size: 1.3rem;
     padding: 1px 24px;
@@ -1533,34 +1169,16 @@ header .form-select {
   .ready-text {
     font-size: 1rem;
   }
-
-  .faqChal{
-    position: relative;
-    left: -30px;
-  }
   
   .email-input {
     flex-basis: 100%;
-    width: 100%;
-    font-weight: 700;
-    border-radius: 5px;
-    border: 2px solid #333;
   }
   
-  .getButton {
+  .get-started-btn {
     width: 200px;
     font-size: 1.3rem;
     padding: 1px 24px;
     position: relative;
-  }
-
-
-  .getStartedBtn {
-    width: 176px;
-    font-size: 1.3rem;
-    padding: 1px 24px;
-
-    
   }
   
   .footer-links {
@@ -1599,19 +1217,3 @@ header .form-select {
 .faq-section .one span{
     font-size: 19px;
 }
-
-
-
-
-
-
-
-
-.icon-container{
-  position: relative;
-  right: -45%;
-  top: 0px;
-}
-
-
-

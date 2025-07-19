@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { use } from 'react'
 import "./Login.css"
 import logo from "../../assets/logo.png";
 import { useState } from 'react';
@@ -12,7 +12,7 @@ function Login() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [eye, onEye] = useState(true);
 
 
 
@@ -26,6 +26,10 @@ function Login() {
   }
 
 
+  const eyesFucn = ()=>{
+    
+  }
+
 
   return (
     <div className='Login'>
@@ -36,7 +40,10 @@ function Login() {
           {Signstate === "Sign Up" ?          <input value={name} onChange={(e)=>{setName(e.target.value)}} type="text"  placeholder='Your name'/>: <></>}
 
           <input value={email} onChange={(e)=>{setEmail(e.target.value)}} type="email"  placeholder='Email'/>
-          <input value={password} onChange={(e)=>{setPassword(e.target.value)}} type="password"  placeholder='Password'/>
+
+          {eye === true ? <input value={password} onChange={(e)=>{setPassword(e.target.value)}} type="password"  placeholder='Password'/>: <input value={password} onChange={(e)=>{setPassword(e.target.value)}} type="text"  placeholder='Password'/>}
+
+          <i className={`fa fa-solid ${eye === true ? "fa fa-eye-slash" : "fa-eye"}`} onClick={()=>{onEye(!eye)}}></i>
           <button onClick={user_auth} type='submit'>{Signstate === "Sign In" ? "Sign In": "Sign Up"}</button>
           <div className="form-help">
             <div className="remember">

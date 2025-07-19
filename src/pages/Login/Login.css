@@ -20,11 +20,12 @@
     padding: 60px;
     border-radius: 4px;
     margin: auto;
+    height: 100vh;
 }
 
 .login-form h1{
-    font-size: 32px;
-    font-weight: 500;
+    font-size: 37px !important;
+    font-weight: 700 !important;
     margin-bottom: 28px;
 }
 
@@ -43,6 +44,8 @@
 
     
 }
+
+
 
 
 
@@ -104,12 +107,22 @@
 
 
 
+.login-form form input{
+    padding: 28px;
+    text-align: left;
+
+  }
 
 
 
 
+@media (max-width: 961px){
+  .login-logo {
+  width: 100px;
+  align-self: flex-start;
+}
 
-
+}
 
 
 
@@ -125,10 +138,6 @@
   flex-direction: column;
 }
 
-.login-logo {
-  width: 100px;
-  align-self: flex-start;
-}
 
 .login-form {
   width: 100%;
@@ -183,15 +192,29 @@
   font-size: 14px;
 }
 
+
+
+
+
+
+
+.fa{
+  position: relative;
+  top: -50px;
+  z-index: 9;
+  left: 90%;
+  cursor: pointer;
+}
+
 /* Medium screens and up */
 @media (min-width: 768px) {
   .Login {
     padding: 20px 8%;
   }
   
-  .login-logo {
+  /* .login-logo {
     width: 150px;
-  }
+  } */
   
   .login-form {
     padding: 40px;
@@ -230,9 +253,40 @@
 
 
 
+.login-form form input::placeholder {
+  font-size: 17px; /* Increase this value as needed */
+  font-weight: 500; /* Optional: make it bolder */
+  color: #ccc; /* Optional: lighter or darker */
+}
 
 
 
 
 
+@media (max-width: 600px) {
+  .Login {
+    background-color: #000; /* Solid black like Netflix */
+    background-image: none; /* Remove image on small screen */
+    min-height: 100vh;
+    padding: 0;
+  }
 
+  .login-form form input{
+    padding: 30px;
+    text-align: left;
+
+  }
+
+  .login-logo{
+    width: 100px;
+    margin-left: 30px;
+    margin-top: 20px;
+  }
+
+  .login-form {
+    background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent like Netflix */
+    width: 100%;
+    padding: 30px 5%;
+    border-radius: 0;
+  }
+}

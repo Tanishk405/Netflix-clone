@@ -8,63 +8,120 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './firebase'
 import { Helmet, HelmetProvider } from 'react-helmet-async';  // Changed from react-helmet
 
-function App() {
 
+
+
+
+
+// ... existing imports ...
+
+function App() {
   const navigate = useNavigate();
 
-
-  // useEffect(()=>{
-  //   onAuthStateChanged(auth, async (user)=>{
-  //     if(user){
-  //       console.log("Logged In");
-  //       navigate("/");
-  //     }else{
-  //       console.log("Logged Out");
-  //       navigate("/login");
-  //     }
-  //   })
-  // })
   useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, (user) => {
-    const currentPath = window.location.pathname;
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      const currentPath = window.location.pathname;
 
-    if (user) {
-      // If logged in, redirect away from landing/login to home
-      if (currentPath === '/login' || currentPath === '/beforepage') {
-        navigate('/');
+      if (user) {
+        if (currentPath === '/login' || currentPath === '/beforepage') {
+          navigate('/');
+        }
+      } else {
+        if (currentPath === '/') {
+          navigate('/beforepage');
+        }
       }
-    } else {
-      // If not logged in and currently at `/`, go to landing
-      if (currentPath === '/') {
-        navigate('/beforepage');
-      }
-    }
-  });
+    });
 
-  return () => unsubscribe();
-}, [navigate]);
+    return () => unsubscribe();
+  }, [navigate]);
 
-
-
+  const handleSearch = (result) => {
+    navigate(`/player/movie/${result.id}`);
+  };
 
   return (
-      <HelmetProvider>
+    <HelmetProvider>
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
-      {/* Your app content */}
+      <div className='App'>
+        <Routes>
+          {/* <Route path='/' element={<Home onSearch={handleSearch} />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='beforepage' element={<LandingPage />} />
+          <Route path='/player/:id' element={<Player />} /> */}
 
-    <div className='App'>
-      <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/login' element={<Login/>} />
-        <Route path='beforepage' element={<LandingPage/>} />
-        <Route path='/player/:id' element={<Player/>} />
-      </Routes>
+            <Route path='/' element={<Home onSearch={handleSearch} />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='beforepage' element={<LandingPage />} />
+            <Route path='/player/:type/:id' element={<Player />} />
 
-    </div>
+        </Routes>
+      </div>
     </HelmetProvider>
-  )
+  );
 }
 
-export default App
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function App() {
+
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//   const unsubscribe = onAuthStateChanged(auth, (user) => {
+//     const currentPath = window.location.pathname;
+
+//     if (user) {
+//       // If logged in, redirect away from landing/login to home
+//       if (currentPath === '/login' || currentPath === '/beforepage') {
+//         navigate('/');
+//       }
+//     } else {
+//       // If not logged in and currently at `/`, go to landing
+//       if (currentPath === '/') {
+//         navigate('/beforepage');
+//       }
+//     }
+//   });
+
+//   return () => unsubscribe();
+// }, [navigate]);
+
+
+
+
+//   return (
+//       <HelmetProvider>
+//       <Helmet>
+//         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+//       </Helmet>
+//       {/* Your app content */}
+
+//     <div className='App'>
+//       <Routes>
+//         <Route path='/' element={<Home/>} />
+//         <Route path='/login' element={<Login/>} />
+//         <Route path='beforepage' element={<LandingPage/>} />
+//         <Route path='/player/:id' element={<Player/>} />
+//       </Routes>
+
+//     </div>
+//     </HelmetProvider>
+//   )
+// }
+
+// export default App

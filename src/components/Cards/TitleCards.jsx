@@ -72,7 +72,7 @@ function TitleCards({ title, category = "now_playing" }) {
       <h2>{title || 'Popular on Netflix'}</h2>
       <div className="card-list" ref={cardsRef}>
         {apiData.map((card) => (
-          <Link to={`/player/${card.id}`} className="card" key={card.id}>
+          <Link to={`/player/movie/${card.id}`} className="card" key={card.id}>
             <div className="card-image-container">
               <img
                 src={

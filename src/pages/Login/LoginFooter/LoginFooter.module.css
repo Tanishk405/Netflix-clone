@@ -27,12 +27,12 @@ p{
 
 .loginFooter .list{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
   text-align: left;
-  gap: 10px;
   list-style: none;
   padding: 0;
+  margin-bottom: 20px;
 }
 
 
@@ -73,8 +73,8 @@ select{
 
 .language-icon-footer {
   position: absolute;
-  top: 75%;
-  left: 120px;
+  top: 35%;
+  left: 12px;
   margin-top: 10px;
   width: 16px;
   z-index: 9;
@@ -89,7 +89,7 @@ select{
   width: 100%;
   background-color: #161616;
   padding: 40px 20px;
-  color: white;
+  color: gray;
   text-align: center;
   margin-top: 40px;
 }
@@ -144,6 +144,24 @@ select {
   display: inline-block;
 }
 
+
+
+
+
+
+/* For screens below 960px but above 600px */
+@media (min-width: 960px) and (min-width: 601px) {
+  .loginFooter .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+
+
+
+
+
 /* Medium screens and up */
 @media (min-width: 768px) {
   .loginFooter {
@@ -151,9 +169,6 @@ select {
     margin-top: 145px;
   }
   
-  .loginFooter .list {
-    grid-template-columns: repeat(4, 1fr);
-  }
   
   .language-icon {
     left: 15px;
@@ -183,11 +198,6 @@ select {
   .loginFooter {
     padding: 20px 15px;
     margin-top: 30px;
-  }
-
-  .loginFooter .list {
-    grid-template-columns: 1fr; /* Single column */
-    gap: 15px;
   }
 
   .loginFooter p {
