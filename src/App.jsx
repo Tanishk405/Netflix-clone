@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Home from "./pages/Home/Home"
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import LandingPage from "./pages/LandingPage/Landing"
 import Login from "./pages/Login/Login"
 import Player from "./pages/Player/Player"
@@ -17,10 +17,11 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';  // Changed from re
 
 function App() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      const currentPath = window.location.pathname;
+      const currentPath = location.pathname;
 
       if (user) {
         if (currentPath === '/login' || currentPath === '/beforepage') {
@@ -34,7 +35,7 @@ function App() {
     });
 
     return () => unsubscribe();
-  }, [navigate]);
+  }, [navigate, location.pathname]);
 
   const handleSearch = (result) => {
     navigate(`/player/movie/${result.id}`);
